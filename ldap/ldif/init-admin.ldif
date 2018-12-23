@@ -1,0 +1,13 @@
+cat << EOF | ldapadd -Y EXTERNAL -H ldapi:///
+
+dn: olcDatabase={0}config,cn=config
+changetype: modify
+add: olcRootDN
+olcRootDN: cn=Admin,cn=config
+
+dn: olcDatabase={0}config,cn=config
+changetype: modify
+add: olcRootPW
+olcRootPW: {SSHA}MH+m8Sxpt66mA+7CGZd/H/KMR7N6gthJ
+
+EOF

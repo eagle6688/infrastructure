@@ -1,0 +1,6 @@
+cat << EOF | ldapmodify -Y EXTERNAL -H ldapi:///
+dn: cn=config
+changetype: modify
+add: olcLogLevel
+olcLogLevel: 256
+EOF

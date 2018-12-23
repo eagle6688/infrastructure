@@ -1,0 +1,19 @@
+cat << EOF | ldapadd -x -D cn=Admin,dc=lionlea,dc=com -W
+dn: dc=lionlea,dc=com
+dc: lionlea
+o: Lionlea Corporation
+objectClass: dcObject
+objectClass: organization
+EOF
+
+cat << EOF | ldapadd -x -D cn=Admin,dc=lionlea,dc=com -W
+dn: ou=people,dc=lionlea,dc=com
+ou: people
+objectClass: top
+objectClass: organizationalUnit
+
+dn: ou=group,dc=lionlea,dc=com
+ou: group
+objectClass: top
+objectClass: organizationalUnit
+EOF
