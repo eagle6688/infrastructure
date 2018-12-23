@@ -43,6 +43,15 @@ cd /etc/openldap/slapd.d/cn=config
 # Log log.ldif
 cat cn\=config.ldif | grep olcLogLevel
 
+# Include schema
+rpm -ql sudo-1.8.23 | grep -i schema
+ldapadd -Q -Y EXTERNAL -H ldapi:/// -W -f /etc/openldap/schema/cosine.ldif
+ldapadd -Q -Y EXTERNAL -H ldapi:/// -W -f /etc/openldap/schema/inetorgperson.ldif
+ldapadd -Q -Y EXTERNAL -H ldapi:/// -W -f /etc/openldap/schema/misc.ldif
+ldapadd -Q -Y EXTERNAL -H ldapi:/// -W -f /etc/openldap/schema/nis.ldif
+ldapadd -Q -Y EXTERNAL -H ldapi:/// -W -f /etc/openldap/schema/openldap.ldif
+#cp -f /usr/share/doc/sudo-1.8.23/schema.OpenLDAP /etc/openldap/schema/sudo.schema
+
 # Database directory
 cd /var/lib/ldap
 
@@ -58,9 +67,8 @@ sudo systemctl daemon-reload
 sudo systemctl start slapd.service
 systemctl status slapd.service
 
-# Other
-# slapd.d
-su
-cd /etc/openldap/slapd.d/cn=config/
+# Verify
+ldapsearch -x -b '' -s base '(objectclass=*)' namingContexts
 
+# Other
 ldapsearch -x -LLL

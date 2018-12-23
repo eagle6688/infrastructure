@@ -1,0 +1,29 @@
+cat << EOF | ldapadd -x -D cn=Admin,dc=lionlea,dc=com -W
+dn: uid=aldwin,ou=people,dc=lionlea,dc=com
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: person
+objectClass: inetOrgPerson
+cn: Aldwin Su
+sn: Su
+givenName: Aldwin
+displayName: Aldwin Su
+uid: aldwin
+userPassword: {SSHA}MH+m8Sxpt66mA+7CGZd/H/KMR7N6gthJ
+uidNumber: 1001
+gidNumber: 1001
+gecos: CEO
+homeDirectory: /home/aldwin
+loginShell: /bin/nologin
+shadowLastChange: 16020
+shadowMin: 0
+shadowMax: 999999
+shadowWarning: 7
+shadowExpire: -1
+employeeNumber: 1001
+homePhone: 13666666666
+mobile: 13666666666
+mail: aldwinsu@lionlea.com
+postalAddress: Beijing
+initials: Init
+EOF
