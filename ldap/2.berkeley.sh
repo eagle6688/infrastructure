@@ -16,3 +16,18 @@ mkdir /usr/local/programs/BDB
 cd bdb/build_unix
 ../dist/configure --prefix=/usr/local/programs/BDB
 
+#4. make and install
+make
+make install
+
+#5. Add lib file
+cat >> /etc/ld.so.conf.d/bdb.conf << EOF
+/usr/local/programs/BDB/lib/
+EOF
+
+cat /etc/ld.so.conf.d/bdb.conf
+
+ldconfig -v
+
+#6. Add head file
+ln -sv /usr/local/programs/BDB/include /usr/include/bdb
