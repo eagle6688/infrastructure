@@ -1,0 +1,4 @@
+#/etc/postfix/ldap-aliases.cf
+server_host = ldap.lionlea.com
+server_port = 389
+search_base = dc=lionlea,dc=com
