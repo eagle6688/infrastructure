@@ -2,3 +2,4 @@
 server_host = ldap.lionlea.com
 server_port = 389
 search_base = dc=lionlea,dc=com
+query_filter = (&(objectclass=inetOrgPerson)(email=%s))
