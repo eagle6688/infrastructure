@@ -3,6 +3,9 @@ mailq
 sendmail -bp
 postqueue -p
 
+# Clear all mails in queue.
+postsuper -d ALL
+
 # Log
 su
 cat /var/log/maillog
