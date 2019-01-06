@@ -8,7 +8,7 @@ postsuper -d ALL
 
 # Log
 su
-cat /var/log/maillog
+sudo cat /var/log/maillog
 grep -n error /var/log/maillog
 
 # Status, running or not?

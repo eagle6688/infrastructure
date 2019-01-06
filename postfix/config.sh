@@ -15,6 +15,8 @@ postmap -q aldwin ldap:/etc/postfix/ldap-aliases.cf
 cd /etc/postfix
 vi master.cf
 
+/etc/postfix/master.cf
+
 #Check myhostname, host name for mail server.
 sudo postconf myhostname=mail.lionlea.com
 sudo postfix reload
