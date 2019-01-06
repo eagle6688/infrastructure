@@ -1,5 +1,7 @@
 #/etc/postfix/ldap-aliases.cf
 server_host = ldap.lionlea.com
 server_port = 389
+bind = no
 search_base = dc=lionlea,dc=com
-query_filter = (&(objectclass=inetOrgPerson)(email=%s))
+result_attribute = mail
+query_filter = (&(objectclass=inetOrgPerson)(uid=%s))

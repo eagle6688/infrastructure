@@ -50,7 +50,6 @@ ldapadd -Q -Y EXTERNAL -H ldapi:/// -W -f /etc/openldap/schema/inetorgperson.ldi
 ldapadd -Q -Y EXTERNAL -H ldapi:/// -W -f /etc/openldap/schema/misc.ldif
 ldapadd -Q -Y EXTERNAL -H ldapi:/// -W -f /etc/openldap/schema/nis.ldif
 ldapadd -Q -Y EXTERNAL -H ldapi:/// -W -f /etc/openldap/schema/openldap.ldif
-#cp -f /usr/share/doc/sudo-1.8.23/schema.OpenLDAP /etc/openldap/schema/sudo.schema
 
 # Database directory
 cd /var/lib/ldap
@@ -66,6 +65,16 @@ sudo systemctl daemon-reload
 
 sudo systemctl start slapd.service
 systemctl status slapd.service
+
+#8. Add lib file
+cat >> /etc/ld.so.conf.d/ldap.conf << EOF
+/usr/lib64/openldap
+EOF
+
+ldconfig -v
+
+#6. Add head file
+ln -sv /usr/local/programs/BDB/include /usr/include/bdb
 
 # Verify
 ldapsearch -x -b '' -s base '(objectclass=*)' namingContexts
