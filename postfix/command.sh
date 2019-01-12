@@ -12,7 +12,8 @@ sudo cat /var/log/maillog
 grep -n error /var/log/maillog
 
 # See the log
-egrep '(reject|warning|error|fatal|panic):' /var/log/maillog
+sudo postfix check
+sudo egrep '(reject|warning|error|fatal|panic):' /var/log/maillog
 
 # Status, running or not?
 sudo postfix status

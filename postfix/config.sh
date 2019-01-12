@@ -53,12 +53,17 @@ sudo postfix reload
 postconf home_mailbox
 
 #If your machine is on an open network then you must specify what client IP addresses are authorized to relay their mail through your machine into the Internet.
-sudo postconf mynetworks='127.0.0.0/8 192.168.31.0/224'
+sudo postconf mynetworks='127.0.0.0/8, 192.168.31.0/224'
 sudo postfix reload
 postconf mynetworks
 
 #If your machine is on an open network then you must also specify whether Postfix will forward mail from strangers.
 postconf relay_domains
+
+#Update /etc/aliases
+# postmaster: you
+# root: you
+sudo vi /etc/aliases
 
 #Test
 telnet 127.0.0.1 25
