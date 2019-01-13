@@ -10,7 +10,7 @@ tar -zxvf postfix-3.3.2.tar.gz
 cd postfix-3.3.2
 
 #4. Config
-make makefiles CCARGS="-I/usr/include -DHAS_LDAP -DNO_DB" AUXLIBS_LDAP="-L/usr/lib64/openldap -lldap -L/usr/lib64/openldap -llber"
+make makefiles CCARGS="-DHAS_LDAP -I/usr/include -DHAS_DB -I/usr/include/bdb" AUXLIBS_LDAP="-L/usr/lib64/openldap -lldap -L/usr/lib64/openldap -llber -L/usr/local/programs/BDB/lib -ldb"
 
 #5. Complie
 make

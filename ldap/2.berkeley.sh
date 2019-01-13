@@ -22,7 +22,7 @@ make install
 
 #5. Add lib file
 cat >> /etc/ld.so.conf.d/bdb.conf << EOF
-/usr/local/programs/BDB/lib/
+/usr/local/programs/BDB/lib
 EOF
 
 cat /etc/ld.so.conf.d/bdb.conf
